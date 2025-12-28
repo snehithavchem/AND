@@ -6,7 +6,8 @@
     <title>AND- Research | Home</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <style>
-        /* --- CORE STYLING (Restored) --- */
+        /* --- CORE STYLING --- */
+        /* Embedded CSS to ensure the website loads correctly without external files */
         body {
             background-color: #0d0d0d; /* Deep Black Background */
             color: #cccccc;
@@ -18,7 +19,7 @@
         }
 
         .container {
-            max-width: 1300px; /* Increased width to fit the new ASCII art */
+            max-width: 1400px; /* Increased width to fit the wider ASCII art */
             margin: 0 auto;
         }
 
@@ -54,6 +55,7 @@
             overflow-x: auto;
             line-height: 1.1; /* Tighter lines for ASCII */
             margin-bottom: 40px;
+            color: #ffffff;
         }
 
         /* --- CONTENT SECTIONS --- */
@@ -68,6 +70,14 @@
         a { color: #4da6ff; text-decoration: none; }
         a:hover { text-decoration: underline; }
         
+        .profile-stats {
+            border-left: 3px solid #00ff00;
+            padding-left: 15px;
+            margin-top: 20px;
+            background-color: #1a1a1a;
+            padding: 15px;
+        }
+
         footer { margin-top: 50px; font-size: 12px; text-align: center; color: #555; }
     </style>
 </head>
@@ -137,11 +147,10 @@
     const startDelay = 500; 
     const promptText = "root@AND-Research:~$";
     
-    // --- ASCII ART DATA (FIXED ALIGNMENT) ---
-    // The top border and headers are now perfectly matched to the wide content below.
+    // --- ASCII ART DATA (FIXED ALIGNMENT & MONKEY LEGS) ---
     const asciiLines = [
         `<span style="color: #555555;">+===================================================================================================================================================</span>`,
-        `<span style="color: #555555;">|</span>  <span style="color: #ffffff; font-weight: bold;">STRUCTURAL FRAMEWORKS</span>                                  <span style="color: #ffffff; font-weight: bold;">NANOMATERIALS</span>                    <span style="color: #555555;">|</span>      <span style="color: #ffffff; font-weight: bold;">DYNAMICS</span>      <span style="color: #555555;">|</span>    <span style="color: #00ffff; font-weight: bold;">THEORY DEV.</span>`,
+        `<span style="color: #555555;">|</span>  <span style="color: #ffffff; font-weight: bold;">STRUCTURAL FRAMEWORKS</span>                              <span style="color: #ffffff; font-weight: bold;">NANOMATERIALS</span>                 <span style="color: #555555;">|</span>       <span style="color: #ffffff; font-weight: bold;">DYNAMICS</span>       <span style="color: #555555;">|</span>     <span style="color: #00ffff; font-weight: bold;">THEORY DEV.</span>`,
         `<span style="color: #555555;">+===================================================================================================================================================</span>`,
         `<span style="color: #555555;">|</span>`,
         // Row 1: Hair
