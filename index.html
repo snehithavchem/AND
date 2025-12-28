@@ -73,24 +73,20 @@
     const startDelay = 1000; 
     const promptText = "root@AND-Research:~$";
     
-    // YOUR UPDATED ASCII ART DATA (WITH BOLD/DARK THUNDERBIRD EMBLEM)
+    // YOUR UPDATED ASCII ART DATA (TITAN SIZE - LINES ONLY)
+    // No blocks (■), just structural lines (/, \, |, =, _)
     const asciiLines = [
         `<span style="color: #555555;">+==================================================================================================================================</span>`,
         `<span style="color: #555555;">|</span>  <span style="color: #ffffff; font-weight: bold;">STRUCTURAL FRAMEWORKS</span>             <span style="color: #ffffff; font-weight: bold;">NANOMATERIALS</span>      <span style="color: #555555;">|</span>      <span style="color: #ffffff; font-weight: bold;">DYNAMICS</span>      <span style="color: #555555;">|</span>    <span style="color: #00ffff; font-weight: bold;">THEORY DEV.</span>`,
         `<span style="color: #555555;">+==================================================================================================================================</span>`,
         `<span style="color: #555555;">|</span>`,
-        `<span style="color: #555555;">|</span>    <span style="color: #00ff00; font-weight: bold;">[ RESEARCH MODULES ]</span>                             <span style="color: #4da6ff; font-weight: bold;">█████╗ ███╗   ██╗██████╗</span>`,
-        // BOLDER WINGS (Using solid blocks and heavy frame)
-        `<span style="color: #555555;">|</span>                                                    <span style="color: #4da6ff; font-weight: bold;">██╔══██╗████╗  ██║██╔══██╗</span>        <span style="color: #ffffff; font-weight: bold;">◢//</span> <span style="color: #00ffff;">█ ≈ | ≈ █</span> <span style="color: #ffffff; font-weight: bold;">\\\\◣</span>`,
-        // BOLDER CORE (Heavier walls ▌▐ and denser center [Ø])
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic structure of Plasmonic systems</span>    <span style="color: #4da6ff; font-weight: bold;">███████║██╔██╗ ██║██║  ██║</span>         <span style="color: #ffffff; font-weight: bold;">▌ \\ : </span><span style="color: #ff00ff; font-weight: bold;">[Ø]</span><span style="color: #ffffff; font-weight: bold;"> : / ▐</span>`,
-        // BOLDER BASE (Solid active site ▲ and heavy connectors ≡)
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Homogeneous & Heterogeneous Catalysis</span>        <span style="color: #4da6ff; font-weight: bold;">██╔══██║██║╚██╗██║██║  ██║</span>         <span style="color: #ffffff; font-weight: bold;">◥◣ ≡≡≡</span><span style="color: #ff4500;">{▲}</span><span style="color: #ffffff; font-weight: bold;">≡≡≡ ◢◤</span>`,
-        // BOLDER TAIL (Dense shader block ▓▓▓)
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Topological Quantum Materials for catalysis</span>  <span style="color: #4da6ff; font-weight: bold;">██║  ██║██║ ╚████║██████╔╝</span>          <span style="color: #ffffff; font-weight: bold;">◥◣</span><span style="color: #8a2be2;">[▓▓▓▓▓▓▓]</span><span style="color: #ffffff; font-weight: bold;">◢◤</span>`,
-        // BOLDER FOUNDATION (Solid triangles ▼)
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic Structure of Solids and Molecules</span> <span style="color: #4da6ff; font-weight: bold;">╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝</span>           <span style="color: #8a2be2;">▼▼▼▼▼▼▼▼▼</span>`,
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Ab Initio MD & QM/MM</span>`,
+        `<span style="color: #555555;">|</span>    <span style="color: #00ff00; font-weight: bold;">[ RESEARCH MODULES ]</span>                             <span style="color: #4da6ff; font-weight: bold;">█████╗ ███╗   ██╗██████╗</span>         <span style="color: #00ffff; font-weight: bold;">   //   /--^--\\   \\\\   </span>`, // Row 1: Crown
+        `<span style="color: #555555;">|</span>                                                    <span style="color: #4da6ff; font-weight: bold;">██╔══██╗████╗  ██║██╔══██╗</span>        <span style="color: #00ffff; font-weight: bold;">  //   / ~ * ~ \\   \\\\  </span>`, // Row 2: Plasmonics
+        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic structure of Plasmonic systems</span>    <span style="color: #4da6ff; font-weight: bold;">███████║██╔██╗ ██║██║  ██║</span>        <span style="color: #ffffff; font-weight: bold;"> ||   |  </span><span style="color: #ff00ff; font-weight: bold;">&lt;(ø)&gt;</span><span style="color: #ffffff; font-weight: bold;">  |   || </span>`, // Row 3: Core (Molecule)
+        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Homogeneous & Heterogeneous Catalysis</span>        <span style="color: #4da6ff; font-weight: bold;">██╔══██║██║╚██╗██║██║  ██║</span>        <span style="color: #ffffff; font-weight: bold;"> ||    ===</span><span style="color: #ff4500; font-weight: bold;">{^}</span><span style="color: #ffffff; font-weight: bold;">===    || </span>`, // Row 4: Active Site
+        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Topological Quantum Materials for catalysis</span>  <span style="color: #4da6ff; font-weight: bold;">██║  ██║██║ ╚████║██████╔╝</span>         <span style="color: #ffffff; font-weight: bold;"> \\\\   \\ </span><span style="color: #8a2be2;">[###]</span><span style="color: #ffffff; font-weight: bold;"> /   //  </span>`, // Row 5: Bands
+        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic Structure of Solids and Molecules</span> <span style="color: #4da6ff; font-weight: bold;">╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝</span>          <span style="color: #ffffff; font-weight: bold;"> \\\\   \\_____/   //   </span>`, // Row 6: Tail Frame
+        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Ab Initio MD & QM/MM</span>                                                                     <span style="color: #8a2be2;">\\___________/</span>    `, // Row 7: Tail Tip
         `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Biomimetic Chemistry</span>`,
         `<span style="color: #555555;">|</span>`,
         `<span style="color: #555555;">|</span>    <span style="color: #00ff00; font-weight: bold;">[STATUS]: ONLINE</span>                               <span style="color: #ffffff;">Architectures, Nanomaterials</span>         <span style="color: #00ffff; font-weight: bold;">      AND- Research        </span>`,
