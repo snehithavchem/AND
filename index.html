@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AND- Research | Home</title>
+    <!-- Ubuntu Mono for authentic Ubuntu terminal look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <style>
+        #ascii-container,
+        #ascii-container div,
+        #ascii-container span,
+        nav,
+        #type-target,
+        .cursor {
+            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
+            letter-spacing: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,7 +28,6 @@
 
     <nav>
         <span id="type-target" style="color: var(--accent-green);"></span><span class="cursor"></span>
-        
         <span id="nav-links" style="display:none;">
             &nbsp;
             <a href="index.html" class="active">./about</a> | 
@@ -40,14 +54,14 @@
         
         <section id="admin_profile">
             <h2>Admin Profile: The Operator</h2>
-        <div class="profile-stats">
-            <p>
-            <strong>[System Name]:</strong> Adabala Venkata Snehith<br>
-            <strong>[Display Alias]:</strong> Snehith Adabala<br>
-            <strong>[Unique ID]:</strong> <a href="https://orcid.org/0000-0002-4294-6385" target="_blank">ORCID: 0000-0002-4294-6385</a><br>
-            <strong>[Server Location]:</strong> TIFR Hyderabad, India
-            </p>
-        </div>
+            <div class="profile-stats">
+                <p>
+                <strong>[System Name]:</strong> Adabala Venkata Snehith<br>
+                <strong>[Display Alias]:</strong> Snehith Adabala<br>
+                <strong>[Unique ID]:</strong> <a href="https://orcid.org/0000-0002-4294-6385" target="_blank">ORCID: 0000-0002-4294-6385</a><br>
+                <strong>[Server Location]:</strong> TIFR Hyderabad, India
+                </p>
+            </div>
             <br>
             <p>
                 My core processing power is dedicated to <strong>Computational and Theoretical Chemistry</strong>. I focus on executing electronic structure calculations for metals, materials, and molecules—using these frameworks to explore the unconventional pathways that govern chemical phenomena.
@@ -67,47 +81,169 @@
 </div>
 
 <script>
-    // --- CONFIGURATION ---
-    const typingSpeed = 100; 
-    const asciiLineDelay = 300; 
-    const startDelay = 1000; 
-    const promptText = "root@AND-Research:~$";
-    
-    // YOUR UPDATED ASCII ART DATA (THE "PROPER" SCIENTIST MONKEY)
-    // Style matches the VASPKIT/Cowfile look: clear curves, big eyes.
-    const asciiLines = [
-        `<span style="color: #555555;">+==================================================================================================================================</span>`,
-        `<span style="color: #555555;">|</span>  <span style="color: #ffffff; font-weight: bold;">STRUCTURAL FRAMEWORKS</span>             <span style="color: #ffffff; font-weight: bold;">NANOMATERIALS</span>      <span style="color: #555555;">|</span>      <span style="color: #ffffff; font-weight: bold;">DYNAMICS</span>      <span style="color: #555555;">|</span>    <span style="color: #00ffff; font-weight: bold;">THEORY DEV.</span>`,
-        `<span style="color: #555555;">+==================================================================================================================================</span>`,
-        `<span style="color: #555555;">|</span>`,
-        // Row 1: Hair/Crown
-        `<span style="color: #555555;">|</span>    <span style="color: #00ff00; font-weight: bold;">[ RESEARCH MODULES ]</span>                             <span style="color: #4da6ff; font-weight: bold;">█████╗ ███╗   ██╗██████╗</span>         <span style="color: #ffffff; font-weight: bold;">      \\\\\\///       </span>`, 
-        // Row 2: Forehead
-        `<span style="color: #555555;">|</span>                                                    <span style="color: #4da6ff; font-weight: bold;">██╔══██╗████╗  ██║██╔══██╗</span>         <span style="color: #ffffff; font-weight: bold;">      / _  _ \\      </span>`, 
-        // Row 3: EYES (Cyan) & Ears
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic structure of Plasmonic systems</span>    <span style="color: #4da6ff; font-weight: bold;">███████║██╔██╗ ██║██║  ██║</span>         <span style="color: #ffffff; font-weight: bold;">     (| </span><span style="color: #00ffff; font-weight: bold;">(o)(o)</span><span style="color: #ffffff; font-weight: bold;"> |)     </span>`, 
-        // Row 4: Shoulders/Arms holding the bar
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Homogeneous & Heterogeneous Catalysis</span>        <span style="color: #4da6ff; font-weight: bold;">██╔══██║██║╚██╗██║██║  ██║</span>         <span style="color: #ffffff; font-weight: bold;">   .OOOo--()--oOOO.   </span>`, 
-        // Row 5: Holding the Research Box (Orange Core)
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Topological Quantum Materials for catalysis</span>  <span style="color: #4da6ff; font-weight: bold;">██║  ██║██║ ╚████║██████╔╝</span>         <span style="color: #ffffff; font-weight: bold;">   |   </span><span style="color: #ff4500; font-weight: bold;">Hψ = Eψ;</span><span style="color: #ffffff; font-weight: bold;">    |   </span>`, 
-        // Row 6: Bottom of Box
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Electronic Structure of Solids and Molecules</span> <span style="color: #4da6ff; font-weight: bold;">╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝</span>         <span style="color: #ffffff; font-weight: bold;">   'oooO______Oooo'   </span>`, 
-        // Row 7: Feet
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Ab Initio MD & QM/MM</span>                                                                      <span style="color: #ffffff; font-weight: bold;">      (      )      </span>`, 
-        `<span style="color: #555555;">|</span>    <span style="color: #ffffff;">> Biomimetic Chemistry</span>                                                                      <span style="color: #ffffff; font-weight: bold;">       \\    /       </span>`,
-        `<span style="color: #555555;">|</span>`,
-        `<span style="color: #555555;">|</span>    <span style="color: #00ff00; font-weight: bold;">[STATUS]: ONLINE</span>                               <span style="color: #ffffff;">Architectures, Nanomaterials</span>`,
-        `<span style="color: #555555;">|</span>                                                                <span style="color: #ffffff;">& Dynamics Research</span>`,
-        `<span style="color: #555555;">+==================================================================================================================================</span>`
+    const typingSpeed    = 80;
+    const asciiLineDelay = 250;
+    const startDelay     = 800;
+    const promptText     = "root@AND-Research:~$";
+
+    // Colour helpers
+    const C = {
+        dim   : 'color:#555555',
+        hdr   : 'color:#ffffff;font-weight:bold',
+        green : 'color:#4caf50;font-weight:bold',
+        white : 'color:#e0e0e0',
+        blue  : 'color:#5badff;font-weight:bold',
+        cyan  : 'color:#26c6da;font-weight:bold',
+        orange: 'color:#ff8f00;font-weight:bold',
+        label : 'color:#80deea;font-style:italic',
+        sep   : 'color:#444444',
+    };
+
+    function s(style, text) { return '<span style="' + style + '">' + text + '</span>'; }
+
+    // Layout:
+    //   | + 4sp + research[46] + 3sp + AND[26] + 4sp + human(col 84, center at col 92)
+    const R_PAD = 46;
+    const A_PAD = 26;
+
+    function pad(str, w) { return str + ' '.repeat(Math.max(0, w - str.length)); }
+
+    const RES = [
+        pad("> Electronic structure of Plasmonic systems",  R_PAD),
+        pad("> Homogeneous & Heterogeneous Catalysis",      R_PAD),
+        pad("> Topological Quantum Materials for catalysis",R_PAD),
+        pad("> Electronic Structure of Solids & Molecules", R_PAD),
+        pad("> Ab Initio MD & QM/MM",                       R_PAD),
+        pad("> Biomimetic Chemistry",                        R_PAD),
     ];
 
+    const AND = [
+        pad("\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2557   \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2557",  A_PAD),
+        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557", A_PAD),
+        pad("\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557 \u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
+        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
+        pad("\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2551 \u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d", A_PAD),
+        pad("\u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u2550\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d", A_PAD),
+    ];
+
+    // Gap before human column (4 spaces)
+    const G4 = '    ';
+    // Full empty AND+gap block (used when no AND on that row)
+    const AGAP = ' '.repeat(A_PAD + 4);
+
+    // Human figure — all rows centred at col 84+8 = 92
+    //
+    //        \\\/\/          ← H1  lead=5, len=6,  center=5+3=8 ✓
+    //       / _  _ \         ← H2  lead=4, len=8,  center=4+4=8 ✓
+    //     (| (o)(o) |)       ← H3  lead=2, len=12, center=2+6=8 ✓
+    //   .OOOo--()--oOOO.     ← H4  lead=0, len=16, center=0+8=8 ✓
+    //   |   Hψ = Eψ;   |     ← H5  lead=0, len=16, center=0+8=8 ✓
+    //   'oooO______Oooo'     ← H6  lead=0, len=16, center=0+8=8 ✓
+    //       (      )         ← H7  lead=4, len=8,  center=4+4=8 ✓  (directly below H6)
+    //        \    /          ← H8  lead=5, len=6,  center=5+3=8 ✓  (directly below H7)
+
+    const H = {
+        h1: G4  + s(C.white, '     \\\\\\///'),
+        h2: G4  + s(C.white, '    / _  _ \\'),
+        h3: G4  + s(C.white, '  (| ') + s(C.cyan, '(o)(o)') + s(C.white, ' |)'),
+        h4: G4  + s(C.white, '.OOOo--()--oOOO.'),
+        h5: G4  + s(C.white, '|   ') + s(C.orange, 'H\u03c8 = E\u03c8;') + s(C.white, '   |'),
+        h6: G4  + s(C.white, "'oooO______Oooo'"),
+        h7: AGAP + s(C.white, '    (      )'),   // 4 leading → directly below H6
+        h8: AGAP + s(C.white, '     \\    /'),    // 5 leading → directly below H7
+    };
+
+    // Build a standard content row
+    function row(rText, aText, hSpan) {
+        const r = rText ? s(C.white, rText) : ' '.repeat(R_PAD);
+        const a = aText ? s(C.blue,  aText) : ' '.repeat(A_PAD);
+        return s(C.dim, '|') + '    ' + r + '   ' + a + hSpan;
+    }
+
+    const BORDER = s(C.dim, '+' + '\u2550'.repeat(117) + '+');
+    const BLANK  = s(C.dim, '|');
+
+    const asciiLines = [
+        BORDER,
+
+        // ── Header ──────────────────────────────────────────────────────────
+        s(C.dim,'|') + '  '
+            + s(C.hdr,'STRUCTURAL FRAMEWORKS')
+            + '              '
+            + s(C.hdr,'NANOMATERIALS')
+            + '         '
+            + s(C.dim,'|')
+            + '      '
+            + s(C.hdr,'DYNAMICS')
+            + '      '
+            + s(C.dim,'|')
+            + '    '
+            + s(C.cyan,'THEORY DEV.')
+            + '    '
+            + s(C.dim,'|'),
+
+        BORDER,
+        BLANK,
+
+        // ── [ RESEARCH MODULES ] │ AND A1 │ H1 hair ─────────────────────────
+        s(C.dim,'|') + '    '
+            + s(C.green, '[ RESEARCH MODULES ]')
+            + ' '.repeat(R_PAD - 20)   // pad header to R_PAD width
+            + '   '
+            + s(C.blue, AND[0])
+            + H.h1,
+
+        // ── (blank)              │ AND A2 │ H2 forehead ───────────────────────
+        s(C.dim,'|') + '    '
+            + ' '.repeat(R_PAD)
+            + '   '
+            + s(C.blue, AND[1])
+            + H.h2,
+
+        // ── R1  │ AND A3 │ H3 eyes ──────────────────────────────────────────
+        row(RES[0], AND[2], H.h3),
+
+        // ── R2  │ AND A4 │ H4 arms ──────────────────────────────────────────
+        row(RES[1], AND[3], H.h4),
+
+        // ── R3  │ AND A5 │ H5 equation ──────────────────────────────────────
+        row(RES[2], AND[4], H.h5),
+
+        // ── R4  │ AND A6 │ H6 hands (bottom body) ──────────────────────────
+        row(RES[3], AND[5], H.h6),
+
+        // ── R5  │ (none) │ H7 feet — immediately below H6 ───────────────────
+        row(RES[4], '', H.h7),
+
+        // ── R6  │ (none) │ H8 feet — immediately below H7 ───────────────────
+        row(RES[5], '', H.h8),
+
+        BLANK,
+
+        // ── Label row: centred under AND+human area (cols 54–100) ─────────────
+        //    "Architectures, Nanomaterials & Dynamics Research" (48 chars)
+        //    starts at col 53 → centre ≈ col 77
+        s(C.dim,'|')
+            + ' '.repeat(53)
+            + s(C.sep,  '\u2500\u2500 ')
+            + s(C.label,'Architectures, Nanomaterials & Dynamics Research')
+            + s(C.sep,  ' \u2500\u2500'),
+
+        // ── Status row ────────────────────────────────────────────────────────
+        s(C.dim,'|') + '    ' + s(C.green,'[STATUS]: ONLINE'),
+
+        BLANK,
+        BORDER,
+    ];
+
+    // ── Animation ────────────────────────────────────────────────────────────
     function typePrompt(text, index) {
         if (index < text.length) {
             document.getElementById('type-target').innerHTML += text.charAt(index);
-            setTimeout(() => typePrompt(text, index + 1), typingSpeed); 
+            setTimeout(() => typePrompt(text, index + 1), typingSpeed);
         } else {
             const navLinks = document.getElementById('nav-links');
-            if(navLinks) navLinks.style.display = "inline";
+            if (navLinks) navLinks.style.display = 'inline';
             printAsciiArt(0);
         }
     }
@@ -116,25 +252,22 @@
         const container = document.getElementById('ascii-container');
         if (lineIndex < asciiLines.length) {
             const div = document.createElement('div');
-            div.style.whiteSpace = "pre"; 
-            div.style.fontFamily = "'Courier New', monospace";
+            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.35;";
             div.innerHTML = asciiLines[lineIndex];
             container.appendChild(div);
-            setTimeout(() => printAsciiArt(lineIndex + 1), asciiLineDelay); 
+            setTimeout(() => printAsciiArt(lineIndex + 1), asciiLineDelay);
         } else {
-             const mainContent = document.getElementById('main-content');
-             if(mainContent) mainContent.classList.add('visible');
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) mainContent.classList.add('visible');
         }
     }
 
-    window.onload = function() {
-        const typeTarget = document.getElementById('type-target');
+    window.onload = function () {
+        const typeTarget     = document.getElementById('type-target');
         const asciiContainer = document.getElementById('ascii-container');
-        
-        if(typeTarget) typeTarget.innerHTML = "";
-        if(asciiContainer) asciiContainer.innerHTML = "";
-        
-        setTimeout(() => { typePrompt(promptText, 0); }, startDelay);
+        if (typeTarget)      typeTarget.innerHTML    = '';
+        if (asciiContainer)  asciiContainer.innerHTML = '';
+        setTimeout(() => typePrompt(promptText, 0), startDelay);
     };
 </script>
 </body>
