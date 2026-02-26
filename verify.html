@@ -27,6 +27,16 @@ function pemToArrayBuffer(pem) {
     return buffer;
 }
 
+// Canonical JSON stringify (sorted keys)
+function canonicalStringify(obj) {
+    return JSON.stringify(
+        Object.keys(obj).sort().reduce((acc, key) => {
+            acc[key] = obj[key];
+            return acc;
+        }, {})
+    );
+}
+
 async function verifySignature(data, signatureB64) {
 
     const keyBuffer = pemToArrayBuffer(publicKeyPem);
@@ -40,8 +50,9 @@ async function verifySignature(data, signatureB64) {
     );
 
     const signature = Uint8Array.from(atob(signatureB64), c => c.charCodeAt(0));
+
     const encoder = new TextEncoder();
-    const dataBytes = encoder.encode(JSON.stringify(data, Object.keys(data).sort()));
+    const dataBytes = encoder.encode(canonicalStringify(data));
 
     return await crypto.subtle.verify(
         "Ed25519",
