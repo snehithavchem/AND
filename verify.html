@@ -5,85 +5,41 @@
 <title>Letter Verification</title>
 </head>
 <body>
-<h2>Upload Letter PDF for Verification</h2>
-<input type="file" id="fileInput" accept="application/pdf">
-<div id="result"></div>
+<h2>Letter Verification</h2>
+<div id="result">Checking...</div>
 
-<script src="https://cdn.jsdelivr.net/npm/tweetnacl@1.0.3/nacl.min.js"></script>
 <script>
-
-function base64UrlDecode(str) {
-    str = str.replace(/-/g, '+').replace(/_/g, '/');
-    while (str.length % 4) str += '=';
-    return Uint8Array.from(atob(str), c => c.charCodeAt(0));
-}
-
-function base64Decode(str) {
-    return Uint8Array.from(atob(str), c => c.charCodeAt(0));
-}
-
-function canonicalStringify(obj) {
-    return JSON.stringify(
-        Object.keys(obj).sort().reduce((acc, key) => {
-            acc[key] = obj[key];
-            return acc;
-        }, {})
-    );
-}
 
 async function main() {
 
-    const hash = window.location.hash;
-    if (!hash.includes("payload=")) {
-        document.body.innerHTML = "<h3>Invalid QR</h3>";
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+        document.getElementById("result").innerHTML =
+            "<h3>Invalid verification link</h3>";
         return;
     }
 
-    const payloadB64 = hash.split("payload=")[1];
-    const payload = JSON.parse(new TextDecoder().decode(base64UrlDecode(payloadB64)));
+    const response = await fetch("letters.json");
+    const data = await response.json();
 
-    const data = payload.data;
-    const signature = base64Decode(payload.sig);
-
-    const canonicalData = new TextEncoder().encode(canonicalStringify(data));
-
-    // ===== EXACT PUBLIC KEY FROM PYTHON =====
-    const publicKeyPem = `
------BEGIN PUBLIC KEY-----
-MCowBQYDK2VwAyEAyyBexK7fEX5LcebpXC94rrs6quIniN5B7EuBNsdInLU=
------END PUBLIC KEY-----
-`;
-
-    // Extract base64 inside PEM
-    const pem = publicKeyPem
-        .replace("-----BEGIN PUBLIC KEY-----", "")
-        .replace("-----END PUBLIC KEY-----", "")
-        .replace(/\s/g, "");
-
-    const spkiBytes = base64Decode(pem);
-
-    // Ed25519 raw public key = last 32 bytes of SPKI
-    const rawPublicKey = spkiBytes.slice(spkiBytes.length - 32);
-
-    const valid = nacl.sign.detached.verify(
-        canonicalData,
-        signature,
-        rawPublicKey
-    );
-
-    if (valid) {
-        document.body.innerHTML = `
-            <h2 style="color:green;">✔ AUTHENTIC LETTER</h2>
-            <pre>${JSON.stringify(data, null, 2)}</pre>
+    if (data[id] && data[id].status === "valid") {
+        document.getElementById("result").innerHTML = `
+            <h3 style="color:green;">✔ VALID LETTER</h3>
+            <p><strong>Letter ID:</strong> ${id}</p>
+            <p><strong>Recipient:</strong> ${data[id].recipient}</p>
+            <p><strong>Date:</strong> ${data[id].date}</p>
+            <p><strong>Issuer:</strong> ${data[id].issuer}</p>
         `;
     } else {
-        document.body.innerHTML = `
-            <h2 style="color:red;">✘ INVALID SIGNATURE</h2>
-        `;
+        document.getElementById("result").innerHTML =
+            "<h3 style='color:red;'>✘ LETTER NOT FOUND</h3>";
     }
 }
 
 main();
+
 </script>
 </body>
 </html>
