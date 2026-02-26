@@ -3,7 +3,8 @@
     "recipient": "Dr. Green",
     "date": "27 June 2018",
     "issuer": "Snehith Adabala",
-    "status": "valid"
+    "status": "valid",
+    "pdf_hash": "5af7c749e4551d507870339555c4d4f16ffefaa397ff43f5569d33b9fefc2084"
   }
 }
 
