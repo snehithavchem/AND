@@ -20,6 +20,13 @@
             font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
             letter-spacing: 0;
         }
+        /* Centre wrapper */
+        .terminal-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0 auto;
+        }
         .terminal-logo {
             display: inline-block;
             width: fit-content;
@@ -27,6 +34,19 @@
             overflow-x: auto;
             font-size: 0.92rem;
             line-height: 1.4;
+            /* Ubuntu terminal background + padding for that authentic terminal window feel */
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            padding: 14px 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+        }
+        /* Override ALL text inside terminal to Ubuntu Mono */
+        .terminal-logo,
+        .terminal-logo div,
+        .terminal-logo span {
+            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
+            letter-spacing: 0.02em;
         }
     </style>
 </head>
@@ -46,7 +66,9 @@
     </nav>
     <br><br>
 
-    <div class="terminal-logo" id="ascii-container"></div>
+    <div class="terminal-logo-wrapper">
+        <div class="terminal-logo" id="ascii-container"></div>
+    </div>
 
     <div id="main-content" class="fade-in-section">
         <section id="about_and">
@@ -258,7 +280,7 @@
         const container = document.getElementById('ascii-container');
         if (lineIndex < asciiLines.length) {
             const div = document.createElement('div');
-            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.4; font-size:0.92rem;";
+            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.4;";
             div.innerHTML = asciiLines[lineIndex];
             container.appendChild(div);
             setTimeout(() => printAsciiArt(lineIndex + 1), asciiLineDelay);
