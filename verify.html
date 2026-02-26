@@ -8,7 +8,16 @@
 <h2>Letter Verification</h2>
 <div id="result">Checking...</div>
 
+<input type="file" id="fileInput" accept="application/pdf">
+
 <script>
+
+async function sha256(file) {
+    const buffer = await file.arrayBuffer();
+    const hashBuffer = await crypto.subtle.digest("SHA-256", buffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 async function main() {
 
@@ -24,18 +33,35 @@ async function main() {
     const response = await fetch("letters.json");
     const data = await response.json();
 
-    if (data[id] && data[id].status === "valid") {
-        document.getElementById("result").innerHTML = `
-            <h3 style="color:green;">✔ VALID LETTER</h3>
-            <p><strong>Letter ID:</strong> ${id}</p>
-            <p><strong>Recipient:</strong> ${data[id].recipient}</p>
-            <p><strong>Date:</strong> ${data[id].date}</p>
-            <p><strong>Issuer:</strong> ${data[id].issuer}</p>
-        `;
-    } else {
+    if (!data[id] || data[id].status !== "valid") {
         document.getElementById("result").innerHTML =
             "<h3 style='color:red;'>✘ LETTER NOT FOUND</h3>";
+        return;
     }
+
+    document.getElementById("result").innerHTML =
+        "<h3>Letter Found. Please upload PDF to verify integrity.</h3>";
+
+    const fileInput = document.getElementById("fileInput");
+
+    fileInput.addEventListener("change", async () => {
+
+        const file = fileInput.files[0];
+        const computedHash = await sha256(file);
+
+        if (computedHash === data[id].pdf_hash) {
+            document.getElementById("result").innerHTML = `
+                <h3 style="color:green;">✔ VALID & UNMODIFIED LETTER</h3>
+                <p><strong>Recipient:</strong> ${data[id].recipient}</p>
+                <p><strong>Date:</strong> ${data[id].date}</p>
+                <p><strong>Issuer:</strong> ${data[id].issuer}</p>
+            `;
+        } else {
+            document.getElementById("result").innerHTML =
+                "<h3 style='color:red;'>✘ PDF HAS BEEN MODIFIED</h3>";
+        }
+
+    });
 }
 
 main();
