@@ -20,6 +20,14 @@
             font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
             letter-spacing: 0;
         }
+        .terminal-logo {
+            display: inline-block;
+            width: fit-content;
+            max-width: 100%;
+            overflow-x: auto;
+            font-size: 0.92rem;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -149,18 +157,16 @@
         h4: G4  + s(C.white, '.OOOo--()--oOOO.'),
         h5: G4  + s(C.white, '|   ') + s(C.orange, 'H\u03c8 = E\u03c8;') + s(C.white, '   |'),
         h6: G4  + s(C.white, "'oooO______Oooo'"),
-        h7: G4  + s(C.white, ' (      )'),       // under ______ compensating for Unicode char width
-        h8: G4  + s(C.white, '  \\    /'),       // one indent right of h7 start
     };
 
     // Build a standard content row
     function row(rText, aText, hSpan) {
         const r = rText ? s(C.white, rText) : ' '.repeat(R_PAD);
         const a = aText ? s(C.blue,  aText) : ' '.repeat(A_PAD);
-        return s(C.dim, '|') + '    ' + r + '   ' + a + hSpan;
+        return s(C.dim, '|') + '    ' + r + '      ' + a + hSpan;
     }
 
-    const BORDER = s(C.dim, '+' + '\u2550'.repeat(117) + '+');
+    const BORDER = s(C.dim, '+' + '\u2550'.repeat(100) + '+');
     const BLANK  = s(C.dim, '|');
 
     const asciiLines = [
@@ -189,14 +195,14 @@
         s(C.dim,'|') + '    '
             + s(C.green, '[ RESEARCH MODULES ]')
             + ' '.repeat(R_PAD - 20)   // pad header to R_PAD width
-            + '   '
+            + '      '
             + s(C.blue, AND[0])
             + H.h1,
 
         // ── (blank)              │ AND A2 │ H2 forehead ───────────────────────
         s(C.dim,'|') + '    '
             + ' '.repeat(R_PAD)
-            + '   '
+            + '      '
             + s(C.blue, AND[1])
             + H.h2,
 
@@ -212,11 +218,11 @@
         // ── R4  │ AND A6 │ H6 hands (bottom body) ──────────────────────────
         row(RES[3], AND[5], H.h6),
 
-        // ── R5  │ (none) │ H7 feet — immediately below H6 ───────────────────
-        row(RES[4], '', H.h7),
+        // ── R5  plain ────────────────────────────────────────────────────────
+        row(RES[4], '', ''),
 
-        // ── R6  │ (none) │ H8 feet — immediately below H7 ───────────────────
-        row(RES[5], '', H.h8),
+        // ── R6  plain ────────────────────────────────────────────────────────
+        row(RES[5], '', ''),
 
         BLANK,
 
@@ -252,7 +258,7 @@
         const container = document.getElementById('ascii-container');
         if (lineIndex < asciiLines.length) {
             const div = document.createElement('div');
-            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.35;";
+            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.4; font-size:0.92rem;";
             div.innerHTML = asciiLines[lineIndex];
             container.appendChild(div);
             setTimeout(() => printAsciiArt(lineIndex + 1), asciiLineDelay);
