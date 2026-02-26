@@ -47,21 +47,28 @@ async function main() {
 
     const canonicalData = new TextEncoder().encode(canonicalStringify(data));
 
-    // === PUBLIC KEY ===
+    // ===== EXACT PUBLIC KEY FROM PYTHON =====
     const publicKeyPem = `
 -----BEGIN PUBLIC KEY-----
 MCowBQYDK2VwAyEAyyBexK7fEX5LcebpXC94rrs6quIniN5B7EuBNsdInLU=
 -----END PUBLIC KEY-----
 `;
 
-    // Extract raw key from PEM
-    const pem = publicKeyPem.replace(/-----.*-----/g, "").replace(/\s/g, "");
-    const publicKeyBytes = base64Decode(pem).slice(-32); // Ed25519 raw key is last 32 bytes
+    // Extract base64 inside PEM
+    const pem = publicKeyPem
+        .replace("-----BEGIN PUBLIC KEY-----", "")
+        .replace("-----END PUBLIC KEY-----", "")
+        .replace(/\s/g, "");
+
+    const spkiBytes = base64Decode(pem);
+
+    // Ed25519 raw public key = last 32 bytes of SPKI
+    const rawPublicKey = spkiBytes.slice(spkiBytes.length - 32);
 
     const valid = nacl.sign.detached.verify(
         canonicalData,
         signature,
-        publicKeyBytes
+        rawPublicKey
     );
 
     if (valid) {
