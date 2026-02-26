@@ -11,7 +11,6 @@
 
 <script>
 
-// ===== PASTE YOUR PUBLIC KEY BELOW =====
 const publicKeyPem = `
 -----BEGIN PUBLIC KEY-----
 MCowBQYDK2VwAyEAyyBexK7fEX5LcebpXC94rrs6quIniN5B7EuBNsdInLU=
@@ -42,7 +41,7 @@ async function verifySignature(data, signatureB64) {
 
     const signature = Uint8Array.from(atob(signatureB64), c => c.charCodeAt(0));
     const encoder = new TextEncoder();
-    const dataBytes = encoder.encode(JSON.stringify(data));
+    const dataBytes = encoder.encode(JSON.stringify(data, Object.keys(data).sort()));
 
     return await crypto.subtle.verify(
         "Ed25519",
@@ -52,48 +51,29 @@ async function verifySignature(data, signatureB64) {
     );
 }
 
-async function sha256(file) {
-    const buffer = await file.arrayBuffer();
-    const hashBuffer = await crypto.subtle.digest("SHA-256", buffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 async function main() {
 
     const hash = window.location.hash;
     if (!hash.includes("payload=")) {
-        document.getElementById("result").innerText = "Invalid QR.";
+        document.body.innerHTML = "<h3>Invalid QR</h3>";
         return;
     }
 
     const payloadB64 = hash.split("payload=")[1];
     const payload = JSON.parse(atob(payloadB64));
 
-    const fileInput = document.getElementById("fileInput");
+    const valid = await verifySignature(payload.data, payload.sig);
 
-    fileInput.addEventListener("change", async () => {
-
-        const file = fileInput.files[0];
-        const computedHash = await sha256(file);
-
-        if (computedHash !== payload.data.pdf_hash) {
-            document.getElementById("result").innerHTML =
-                "<h3 style='color:red;'>✘ PDF CONTENT MODIFIED</h3>";
-            return;
-        }
-
-        const valid = await verifySignature(payload.data, payload.sig);
-
-        if (valid) {
-            document.getElementById("result").innerHTML =
-                "<h3 style='color:green;'>✔ AUTHENTIC LETTER</h3>";
-        } else {
-            document.getElementById("result").innerHTML =
-                "<h3 style='color:red;'>✘ INVALID SIGNATURE</h3>";
-        }
-
-    });
+    if (valid) {
+        document.body.innerHTML = `
+            <h2 style="color:green;">✔ AUTHENTIC LETTER</h2>
+            <pre>${JSON.stringify(payload.data, null, 2)}</pre>
+        `;
+    } else {
+        document.body.innerHTML = `
+            <h2 style="color:red;">✘ INVALID SIGNATURE</h2>
+        `;
+    }
 }
 
 main();
