@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <style>
         #ascii-container,
         #ascii-container div,
@@ -278,20 +277,40 @@
     }
 
     function printAsciiArt(lineIndex) {
-        const container = document.getElementById('ascii-container');
-        if (lineIndex < asciiLines.length) {
-            const div = document.createElement('div');
-            div.style.cssText = "white-space:pre; font-family:'Ubuntu Mono','Courier New',monospace; line-height:1.4;";
-            div.innerHTML = asciiLines[lineIndex];
-            container.appendChild(div);
-            setTimeout(() => printAsciiArt(lineIndex + 1), asciiLineDelay);
-        } else {
-            const mainContent = document.getElementById('main-content');
-            if (mainContent) mainContent.classList.add('visible');
-        }
-    }
 
-    window.onload = function () {
+    const container =
+        document.getElementById('ascii-container');
+
+    if (lineIndex < asciiLines.length) {
+
+        const line =
+            document.createElement('div');
+
+        line.style.whiteSpace = 'pre';
+        line.style.fontFamily =
+            "'Ubuntu Mono','Courier New',monospace";
+
+        line.style.lineHeight = '1.4';
+
+        line.innerHTML = asciiLines[lineIndex];
+
+        requestAnimationFrame(() => {
+            container.appendChild(line);
+
+            setTimeout(() => {
+                printAsciiArt(lineIndex + 1);
+            }, asciiLineDelay);
+        });
+
+    } else {
+
+        document
+            .getElementById('main-content')
+            ?.classList.add('visible');
+    }
+}
+
+    window.addEventListener('DOMContentLoaded', function () {
         const typeTarget     = document.getElementById('type-target');
         const asciiContainer = document.getElementById('ascii-container');
         if (typeTarget)      typeTarget.innerHTML    = '';
