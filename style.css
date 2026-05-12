@@ -1,8 +1,13 @@
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: 'Ubuntu Mono';
     src: url('fonts/UbuntuMono-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,9 +15,12 @@
     src: url('fonts/UbuntuMono-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+* {
+    box-sizing: border-box;
+}
 
 :root {
     --bg-color: #1e1e1e;
@@ -27,7 +35,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Ubuntu Mono', monospace;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
@@ -67,7 +75,6 @@ nav a:hover, nav a.active {
     border-radius: 5px;
     background: #111;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-    min-height: 350px;
 }
 
 /* TEXT STYLES */
@@ -98,7 +105,7 @@ a:hover { text-decoration: underline; color: var(--accent-magenta); }
 /* ANIMATIONS */
 .fade-in-section {
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
 .visible {
     opacity: 1;
@@ -106,7 +113,7 @@ a:hover { text-decoration: underline; color: var(--accent-magenta); }
 
 /* Manual Fade In for sub-pages */
 .fade-load {
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 0.35s forwards;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
