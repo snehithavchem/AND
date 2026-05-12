@@ -111,9 +111,8 @@
 </div>
 
 <script>
-    const typingSpeed    = 20;
-    const asciiLineDelay = 40;
-    const startDelay     = 200;
+    const typingSpeed    = 12;
+    const startDelay     = 80;
     const promptText     = "root@AND-Research:~$";
 
     // Colour helpers
@@ -272,42 +271,40 @@
         } else {
             const navLinks = document.getElementById('nav-links');
             if (navLinks) navLinks.style.display = 'inline';
-            printAsciiArt(0);
+            renderAsciiInstantly();
         }
     }
 
-    function printAsciiArt(lineIndex) {
+    function renderAsciiInstantly() {
 
-    const container =
+    const asciiContainer =
         document.getElementById('ascii-container');
 
-    if (lineIndex < asciiLines.length) {
+    const fragment =
+        document.createDocumentFragment();
 
-        const line =
+    asciiLines.forEach(line => {
+
+        const div =
             document.createElement('div');
 
-        line.style.whiteSpace = 'pre';
-        line.style.fontFamily =
+        div.style.whiteSpace = 'pre';
+
+        div.style.fontFamily =
             "'Ubuntu Mono','Courier New',monospace";
 
-        line.style.lineHeight = '1.4';
+        div.style.lineHeight = '1.4';
 
-        line.innerHTML = asciiLines[lineIndex];
+        div.innerHTML = line;
 
-        requestAnimationFrame(() => {
-            container.appendChild(line);
+        fragment.appendChild(div);
+    });
 
-            setTimeout(() => {
-                printAsciiArt(lineIndex + 1);
-            }, asciiLineDelay);
-        });
+    asciiContainer.appendChild(fragment);
 
-    } else {
-
-        document
-            .getElementById('main-content')
-            ?.classList.add('visible');
-    }
+    document
+        .getElementById('main-content')
+        ?.classList.add('visible');
 }
 
     window.addEventListener('DOMContentLoaded', function () {
