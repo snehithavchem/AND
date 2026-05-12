@@ -311,12 +311,66 @@
 }
 
     window.addEventListener('DOMContentLoaded', function () {
-        const typeTarget     = document.getElementById('type-target');
-        const asciiContainer = document.getElementById('ascii-container');
-        if (typeTarget)      typeTarget.innerHTML    = '';
-        if (asciiContainer)  asciiContainer.innerHTML = '';
-        setTimeout(() => typePrompt(promptText, 0), startDelay);
-    };
+
+    const typeTarget =
+        document.getElementById('type-target');
+
+    const asciiContainer =
+        document.getElementById('ascii-container');
+
+    const mainContent =
+        document.getElementById('main-content');
+
+    // Check if intro already played
+    const introPlayed =
+        sessionStorage.getItem('introPlayed');
+
+    if (introPlayed) {
+
+        // Instant render
+        typeTarget.innerHTML = promptText;
+
+        document.getElementById('nav-links')
+            .style.display = 'inline';
+
+        const fragment = document.createDocumentFragment();
+
+        asciiLines.forEach(line => {
+
+            const div = document.createElement('div');
+
+            div.style.whiteSpace = 'pre';
+
+            div.style.fontFamily =
+                "'Ubuntu Mono','Courier New',monospace";
+
+            div.style.lineHeight = '1.4';
+
+            div.innerHTML = line;
+
+            fragment.appendChild(div);
+        });
+
+        asciiContainer.appendChild(fragment);
+        
+        mainContent.classList.add('visible');
+
+    } else {
+
+        // First-time cinematic animation
+        sessionStorage.setItem('introPlayed', 'true');
+
+        if (typeTarget)
+            typeTarget.innerHTML = '';
+
+        if (asciiContainer)
+            asciiContainer.innerHTML = '';
+
+        setTimeout(() => {
+            typePrompt(promptText, 0);
+        }, startDelay);
+    }
+});
 </script>
 </body>
 </html>
