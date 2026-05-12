@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AND- Research | Home</title>
     <!-- Ubuntu Mono for authentic Ubuntu terminal look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         #ascii-container,
         #ascii-container div,
         #ascii-container span,
         nav,
-        #type-target,
         .cursor {
             font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
             letter-spacing: 0;
@@ -54,7 +50,7 @@
 <div class="container">
 
     <nav>
-        <span id="type-target" style="color: var(--accent-green);"></span><span class="cursor"></span>
+        <span style="color: var(--accent-green);">root@AND-Research:~$</span><span class="cursor"></span>
         <span id="nav-links" style="display:none;">
             &nbsp;
             <a href="index.html" class="active">./about</a> | 
@@ -111,9 +107,6 @@
 </div>
 
 <script>
-    const typingSpeed    = 12;
-    const startDelay     = 80;
-    const promptText     = "root@AND-Research:~$";
 
     // Colour helpers
     const C = {
@@ -263,22 +256,8 @@
         BORDER,
     ];
 
-    // ── Animation ────────────────────────────────────────────────────────────
-    function typePrompt(text, index) {
 
-    if (index < text.length) {
-
-        document.getElementById('type-target')
-            .innerHTML += text.charAt(index);
-
-        setTimeout(() => {
-            typePrompt(text, index + 1);
-        }, typingSpeed);
-
-    }
-}
-
-    function renderAsciiInstantly() {
+function renderAsciiInstantly() {
 
     const asciiContainer =
         document.getElementById('ascii-container');
@@ -310,74 +289,8 @@
         ?.classList.add('visible');
 }
 
-    window.addEventListener('DOMContentLoaded', function () {
+renderAsciiInstantly();
 
-    const typeTarget =
-        document.getElementById('type-target');
-
-    const asciiContainer =
-        document.getElementById('ascii-container');
-
-    const mainContent =
-        document.getElementById('main-content');
-
-    // Check if intro already played
-    const introPlayed =
-        sessionStorage.getItem('introPlayed');
-
-    if (introPlayed) {
-
-        // Instant render
-        typeTarget.innerHTML = promptText;
-
-        document.getElementById('nav-links')
-            .style.display = 'inline';
-
-        const fragment = document.createDocumentFragment();
-
-        asciiLines.forEach(line => {
-
-            const div = document.createElement('div');
-
-            div.style.whiteSpace = 'pre';
-
-            div.style.fontFamily =
-                "'Ubuntu Mono','Courier New',monospace";
-
-            div.style.lineHeight = '1.4';
-
-            div.innerHTML = line;
-
-            fragment.appendChild(div);
-        });
-
-        asciiContainer.appendChild(fragment);
-        
-        mainContent.classList.add('visible');
-
-    } else {
-
-    // First-time cinematic animation
-    sessionStorage.setItem('introPlayed', 'true');
-
-    if (typeTarget)
-        typeTarget.innerHTML = '';
-
-    if (asciiContainer)
-        asciiContainer.innerHTML = '';
-
-    // Show page immediately
-    document.getElementById('nav-links')
-        .style.display = 'inline';
-
-    renderAsciiInstantly();
-
-    // Animate prompt separately
-    setTimeout(() => {
-        typePrompt(promptText, 0);
-    }, startDelay);
-}
-});
 </script>
 </body>
 </html>
