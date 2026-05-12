@@ -265,15 +265,18 @@
 
     // ── Animation ────────────────────────────────────────────────────────────
     function typePrompt(text, index) {
-        if (index < text.length) {
-            document.getElementById('type-target').innerHTML += text.charAt(index);
-            setTimeout(() => typePrompt(text, index + 1), typingSpeed);
-        } else {
-            const navLinks = document.getElementById('nav-links');
-            if (navLinks) navLinks.style.display = 'inline';
-            renderAsciiInstantly();
-        }
+
+    if (index < text.length) {
+
+        document.getElementById('type-target')
+            .innerHTML += text.charAt(index);
+
+        setTimeout(() => {
+            typePrompt(text, index + 1);
+        }, typingSpeed);
+
     }
+}
 
     function renderAsciiInstantly() {
 
@@ -354,19 +357,26 @@
 
     } else {
 
-        // First-time cinematic animation
-        sessionStorage.setItem('introPlayed', 'true');
+    // First-time cinematic animation
+    sessionStorage.setItem('introPlayed', 'true');
 
-        if (typeTarget)
-            typeTarget.innerHTML = '';
+    if (typeTarget)
+        typeTarget.innerHTML = '';
 
-        if (asciiContainer)
-            asciiContainer.innerHTML = '';
+    if (asciiContainer)
+        asciiContainer.innerHTML = '';
 
-        setTimeout(() => {
-            typePrompt(promptText, 0);
-        }, startDelay);
-    }
+    // Show page immediately
+    document.getElementById('nav-links')
+        .style.display = 'inline';
+
+    renderAsciiInstantly();
+
+    // Animate prompt separately
+    setTimeout(() => {
+        typePrompt(promptText, 0);
+    }, startDelay);
+}
 });
 </script>
 </body>
