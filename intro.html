@@ -1,1 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AND- Research | Admin Tale</title>
 
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 30px;
+        }
+
+        .profile-card {
+            border: 1px solid #333;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .profile-card img {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid #444;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h3 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .profile-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cv-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 18px;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .cv-button:hover {
+            background: var(--accent-green);
+            color: black;
+        }
+
+        .intro-text h2 {
+            margin-bottom: 25px;
+        }
+
+        .intro-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .research-highlight {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        @media(max-width: 900px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav>
+        <span style="color: var(--accent-green);">
+            root@AND-Research:~/admintale$
+        </span><span class="cursor"></span>
+
+        <br><br>
+
+        <a href="index.html">./about</a> | 
+        <a href="intro.html" class="active">./admintale</a> |
+        <a href="research.html">./research</a> | 
+        <a href="publications.html">./publications</a> | 
+        <a href="contact.html">./contact</a>
+    </nav>
+
+    <div class="fade-load">
+
+        <section id="intro">
+
+            <h2>Operator Log: Research Narrative</h2>
+
+            <div class="intro-grid">
+
+                <!-- LEFT SIDE -->
+                <div class="profile-card">
+
+                    <img src="profile.jpg" alt="Snehith Adabala">
+
+                    <h3>Adabala Venkata Snehith</h3>
+
+                    <p>
+                        Integrated PhD Student<br>
+                        Theoretical & Computational Chemistry<br>
+                        TIFR Hyderabad, India
+                    </p>
+
+                    <a href="CV.pdf" class="cv-button" target="_blank">
+                        Download CV
+                    </a>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="intro-text">
+
+                    <p>
+                        My research interests span 
+                        <span class="research-highlight">
+                            Theoretical Chemistry,
+                            Computational Chemistry,
+                            and Topological Chemistry
+                        </span>.
+                        My work primarily focuses on understanding complex electronic phenomena in materials and catalytic systems through advanced first-principles methodologies.
+                    </p>
+
+                    <p>
+                        From foundational applications of 
+                        <strong>Density Functional Theory (DFT)</strong> 
+                        in catalysis to advanced investigations involving 
+                        <strong>spin polarisation</strong>, 
+                        <strong>spin-orbit coupling</strong>, 
+                        and <strong>valleytronics</strong> during my master's in chemistry at 
+                        <strong>TIFR Hyderabad, India</strong>, 
+                        I have extensively employed 
+                        <strong>VASP</strong> for electronic-structure calculations across a broad range of condensed matter and materials science problems.
+                    </p>
+
+                    <p>
+                        My research predominantly focuses on properties governed by 
+                        surface interactions and electronic structures, with particular emphasis on 
+                        slab and surface calculations that are central to low-dimensional systems, catalytic interfaces, and quantum materials.
+                        More recently, my interests have evolved toward excited-state and many-body methodologies, especially 
+                        <strong>GW</strong> and 
+                        <strong>Bethe-Salpeter Equation (BSE)</strong> calculations for investigating excitonic phenomena and quasiparticle effects in complex materials.
+                    </p>
+
+                    <p>
+                        Beyond applying existing methodologies, I am deeply interested in the computational implementations and numerical foundations underlying modern electronic-structure theory. 
+                        I actively seek to understand the developer-level aspects of frameworks such as VASP and aim to explore interfaces with packages such as 
+                        <strong>YAMBO</strong>, particularly for many-body perturbation theory workflows.
+                    </p>
+
+                    <p>
+                        My broader scientific vision involves developing advanced computational strategies for 
+                        heterogeneous catalysis, topological-material catalysis, finite-temperature DFT, and density functional embedding techniques (DFET) for surface-induced quantum phenomena, where precise control over electronic excitations and many-body effects becomes essential.
+                    </p>
+
+                    <p>
+                        With extensive experience in slabs, surfaces, spin-orbit-coupled systems, and electronic-structure analysis, I aim to bridge the gap between theoretical concepts, computational implementations, and practical materials applications. 
+                        I strongly believe that collaborative interactions among developers, theorists, and computational scientists, along with experimental groups, are vital for advancing next-generation materials modelling methodologies.
+                        "A computational chemist is more successful if they are always trying to go as close as experiments to understand the phenomenon", my advisor has always emphasised this, and I ensure this is followed. 
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <br><br>
+            <hr style="border-color: #333;">
+            <small style="color: #555;">
+                System.exit(0) // © 2025 AND- Research
+            </small>
+        </footer>
+
+    </div>
+</div>
+
+</body>
+</html>
