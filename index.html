@@ -4,44 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AND- Research | Home</title>
-    <!-- Ubuntu Mono for authentic Ubuntu terminal look -->
     <link rel="stylesheet" href="style.css">
     <style>
-        #ascii-container,
-        #ascii-container div,
-        #ascii-container span,
-        nav,
-        .cursor {
-            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
-            letter-spacing: 0;
-        }
-        /* Centre wrapper */
         .terminal-logo-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
         }
-        .terminal-logo {
-            display: inline-block;
-            width: fit-content;
-            max-width: 100%;
-            overflow-x: auto;
-            font-size: 0.92rem;
-            line-height: 1.4;
-            /* Ubuntu terminal background + padding for that authentic terminal window feel */
+        .terminal-svg-box {
             background: #1a1a1a;
             border: 1px solid #3a3a3a;
             border-radius: 6px;
             padding: 14px 18px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+            max-width: 100%;
+            overflow-x: auto;
         }
-        /* Override ALL text inside terminal to Ubuntu Mono */
-        .terminal-logo,
-        .terminal-logo div,
-        .terminal-logo span {
-            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
-            letter-spacing: 0.02em;
+        .terminal-svg-box svg {
+            display: block;
+            max-width: 100%;
         }
     </style>
 </head>
@@ -51,21 +33,160 @@
 
     <nav>
         <span style="color: var(--accent-green);">root@AND-Research:~$</span><span class="cursor"></span>
-        
-            &nbsp;
-            <a href="index.html" class="active">./about</a> | 
-            <a href="intro.html">./admintale</a> |
-            <a href="research.html">./research</a> | 
-            <a href="publications.html">./publications</a> | 
-            <a href="contact.html">./contact</a>
+        &nbsp;
+        <a href="index.html" class="active">./about</a> | 
+        <a href="intro.html">./admintale</a> |
+        <a href="research.html">./research</a> | 
+        <a href="publications.html">./publications</a> | 
+        <a href="contact.html">./contact</a>
     </nav>
     <br><br>
 
     <div class="terminal-logo-wrapper">
-        <div class="terminal-logo" id="ascii-container"></div>
+        <div class="terminal-svg-box">
+            <!--
+                SVG terminal dashboard:
+                  Font: Ubuntu Mono / Courier New monospace, 13px, lineHeight ~18px
+                  ~102 chars wide × 16 rows  →  102×8.45 ≈ 862px wide, 16×18 = 288px tall
+                  We use viewBox="0 0 900 310" with preserveAspectRatio so it scales.
+
+                Column layout (char positions, 8.45px/ch):
+                  border-left  : x=0
+                  research col : x=25  … width 46ch → x_end=414
+                  gap          : 6ch
+                  AND logo     : x=465 … width 26ch → x_end=685
+                  gap          : 4ch
+                  human figure : x=719
+                  border-right : x=893
+            -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 900 312"
+                 width="900" height="312"
+                 style="font-family:'Ubuntu Mono','Courier New',monospace; font-size:13px;">
+
+                <defs>
+                    <!-- reusable text styles via CSS classes inside SVG -->
+                    <style>
+                        .dim    { fill:#555555; }
+                        .hdr    { fill:#ffffff; font-weight:bold; }
+                        .green  { fill:#4caf50; font-weight:bold; }
+                        .white  { fill:#e0e0e0; }
+                        .blue   { fill:#5badff; font-weight:bold; }
+                        .cyan   { fill:#26c6da; font-weight:bold; }
+                        .orange { fill:#ff8f00; font-weight:bold; }
+                        .label  { fill:#80deea; font-style:italic; }
+                        .sep    { fill:#444444; }
+                        .mono   { font-family:'Ubuntu Mono','Courier New',monospace; font-size:13px; }
+                    </style>
+                </defs>
+
+                <!-- ═══════════════ BORDER LINES ═══════════════ -->
+                <!-- top border -->
+                <text x="0"   y="14"  class="mono dim">+</text>
+                <text x="8"   y="14"  class="mono dim">══════════════════════════════════════════════════════════════════════════════════════════════════════</text>
+                <text x="885" y="14"  class="mono dim">+</text>
+
+                <!-- ═══════════════ HEADER ROW ═══════════════ -->
+                <text x="8"   y="32"  class="mono dim">|</text>
+                <text x="25"  y="32"  class="mono hdr">STRUCTURAL FRAMEWORKS</text>
+                <text x="220" y="32"  class="mono hdr">          NANOMATERIALS</text>
+                <text x="470" y="32"  class="mono dim">|</text>
+                <text x="490" y="32"  class="mono hdr">    DYNAMICS</text>
+                <text x="620" y="32"  class="mono dim">|</text>
+                <text x="638" y="32"  class="mono cyan">  THEORY DEV.</text>
+                <text x="878" y="32"  class="mono dim">|</text>
+
+                <!-- second border -->
+                <text x="0"   y="50"  class="mono dim">+</text>
+                <text x="8"   y="50"  class="mono dim">══════════════════════════════════════════════════════════════════════════════════════════════════════</text>
+                <text x="885" y="50"  class="mono dim">+</text>
+
+                <!-- blank row -->
+                <text x="0"   y="68"  class="mono dim">|</text>
+
+                <!-- ═══════════════ ROW: [RESEARCH MODULES] + AND line 1 + hair ═══════════════ -->
+                <text x="0"   y="86"  class="mono dim">|</text>
+                <text x="25"  y="86"  class="mono green">[ RESEARCH MODULES ]</text>
+                <!-- AND line 1: ██████╗ ███╗   ██╗██████╗  -->
+                <text x="468" y="86"  class="mono blue">██████╗ ███╗   ██╗██████╗</text>
+                <!-- hair -->
+                <text x="762" y="86"  class="mono white">  \\\///</text>
+
+                <!-- ═══════════════ ROW: blank + AND line 2 + forehead ═══════════════ -->
+                <text x="0"   y="104" class="mono dim">|</text>
+                <!-- AND line 2: ██╔══██╗████╗  ██║██╔══██╗ -->
+                <text x="468" y="104" class="mono blue">██╔══██╗████╗  ██║██╔══██╗</text>
+                <!-- forehead -->
+                <text x="758" y="104" class="mono white">  / _  _ \</text>
+
+                <!-- ═══════════════ ROW 1 + AND line 3 + eyes ═══════════════ -->
+                <text x="0"   y="122" class="mono dim">|</text>
+                <text x="25"  y="122" class="mono white">&gt; Electronic structure of Plasmonic systems</text>
+                <!-- AND line 3: ███████║██╔██╗ ██║██║  ██║ -->
+                <text x="468" y="122" class="mono blue">███████║██╔██╗ ██║██║  ██║</text>
+                <!-- eyes -->
+                <text x="756" y="122" class="mono white">  (| </text><text x="800" y="122" class="mono cyan">(o)(o)</text><text x="851" y="122" class="mono white"> |)</text>
+
+                <!-- ═══════════════ ROW 2 + AND line 4 + arms ═══════════════ -->
+                <text x="0"   y="140" class="mono dim">|</text>
+                <text x="25"  y="140" class="mono white">&gt; Homogeneous &amp; Heterogeneous Catalysis</text>
+                <!-- AND line 4: ██╔══██║██║╚██╗██║██║  ██║ -->
+                <text x="468" y="140" class="mono blue">██╔══██║██║╚██╗██║██║  ██║</text>
+                <!-- arms/body top -->
+                <text x="752" y="140" class="mono white">.OOOo--()--oOOO.</text>
+
+                <!-- ═══════════════ ROW 3 + AND line 5 + equation ═══════════════ -->
+                <text x="0"   y="158" class="mono dim">|</text>
+                <text x="25"  y="158" class="mono white">&gt; Topological Quantum Materials for catalysis</text>
+                <!-- AND line 5: ██║  ██║██║ ╚████║██████╔╝ -->
+                <text x="468" y="158" class="mono blue">██║  ██║██║ ╚████║██████╔╝</text>
+                <!-- equation row -->
+                <text x="752" y="158" class="mono white">|   </text>
+                <text x="786" y="158" class="mono orange">Hψ = Eψ</text>
+                <text x="841" y="158" class="mono white">   |</text>
+
+                <!-- ═══════════════ ROW 4 + AND line 6 + hands ═══════════════ -->
+                <text x="0"   y="176" class="mono dim">|</text>
+                <text x="25"  y="176" class="mono white">&gt; Electronic Structure of Solids &amp; Molecules</text>
+                <!-- AND line 6: ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ -->
+                <text x="468" y="176" class="mono blue">╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝</text>
+                <!-- hands / feet top -->
+                <text x="752" y="176" class="mono white">'oooO______Oooo'</text>
+
+                <!-- ═══════════════ ROW 5 plain ═══════════════ -->
+                <text x="0"   y="194" class="mono dim">|</text>
+                <text x="25"  y="194" class="mono white">&gt; Ab Initio MD &amp; QM/MM</text>
+
+                <!-- ═══════════════ ROW 6 plain ═══════════════ -->
+                <text x="0"   y="212" class="mono dim">|</text>
+                <text x="25"  y="212" class="mono white">&gt; Biomimetic Chemistry</text>
+
+                <!-- blank row -->
+                <text x="0"   y="230" class="mono dim">|</text>
+
+                <!-- ═══════════════ LABEL ROW ═══════════════ -->
+                <text x="0"   y="248" class="mono dim">|</text>
+                <text x="448" y="248" class="mono sep">── </text>
+                <text x="470" y="248" class="mono label">Architectures, Nanomaterials &amp; Dynamics Research</text>
+                <text x="875" y="248" class="mono sep"> ──</text>
+
+                <!-- ═══════════════ STATUS ROW ═══════════════ -->
+                <text x="0"   y="266" class="mono dim">|</text>
+                <text x="25"  y="266" class="mono green">[STATUS]: ONLINE</text>
+
+                <!-- blank row -->
+                <text x="0"   y="284" class="mono dim">|</text>
+
+                <!-- bottom border -->
+                <text x="0"   y="302" class="mono dim">+</text>
+                <text x="8"   y="302" class="mono dim">══════════════════════════════════════════════════════════════════════════════════════════════════════</text>
+                <text x="885" y="302" class="mono dim">+</text>
+
+            </svg>
+        </div>
     </div>
 
-    <div id="main-content" class="fade-in-section">
+    <div id="main-content" class="fade-in-section visible">
         <section id="about_and">
             <h2>System Specs: The Protocol</h2>
             <p>
@@ -105,191 +226,5 @@
     </div>
 </div>
 
-<script>
-
-    // Colour helpers
-    const C = {
-        dim   : 'color:#555555',
-        hdr   : 'color:#ffffff;font-weight:bold',
-        green : 'color:#4caf50;font-weight:bold',
-        white : 'color:#e0e0e0',
-        blue  : 'color:#5badff;font-weight:bold',
-        cyan  : 'color:#26c6da;font-weight:bold',
-        orange: 'color:#ff8f00;font-weight:bold',
-        label : 'color:#80deea;font-style:italic',
-        sep   : 'color:#444444',
-    };
-
-    function s(style, text) { return '<span style="' + style + '">' + text + '</span>'; }
-
-    // Layout:
-    //   | + 4sp + research[46] + 3sp + AND[26] + 4sp + human(col 84, center at col 92)
-    const R_PAD = 46;
-    const A_PAD = 26;
-
-    function pad(str, w) { return str + ' '.repeat(Math.max(0, w - str.length)); }
-
-    const RES = [
-        pad("> Electronic structure of Plasmonic systems",  R_PAD),
-        pad("> Homogeneous & Heterogeneous Catalysis",      R_PAD),
-        pad("> Topological Quantum Materials for catalysis",R_PAD),
-        pad("> Electronic Structure of Solids & Molecules", R_PAD),
-        pad("> Ab Initio MD & QM/MM",                       R_PAD),
-        pad("> Biomimetic Chemistry",                        R_PAD),
-    ];
-
-    const AND = [
-        pad("\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2557   \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2557",  A_PAD),
-        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557", A_PAD),
-        pad("\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557 \u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
-        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
-        pad("\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2551 \u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d", A_PAD),
-        pad("\u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u2550\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d", A_PAD),
-    ];
-
-    // Gap before human column (4 spaces)
-    const G4 = '    ';
-    // Full empty AND+gap block (used when no AND on that row)
-    const AGAP = ' '.repeat(A_PAD + 4);
-
-    // Human figure — all rows centred at col 84+8 = 92
-    //
-    //        \\\/\/          ← H1  lead=5, len=6,  center=5+3=8 ✓
-    //       / _  _ \         ← H2  lead=4, len=8,  center=4+4=8 ✓
-    //     (| (o)(o) |)       ← H3  lead=2, len=12, center=2+6=8 ✓
-    //   .OOOo--()--oOOO.     ← H4  lead=0, len=16, center=0+8=8 ✓
-    //   |   Hψ = Eψ;   |     ← H5  lead=0, len=16, center=0+8=8 ✓
-    //   'oooO______Oooo'     ← H6  lead=0, len=16, center=0+8=8 ✓
-    //       (      )         ← H7  lead=4, len=8,  center=4+4=8 ✓  (directly below H6)
-    //        \    /          ← H8  lead=5, len=6,  center=5+3=8 ✓  (directly below H7)
-
-    const H = {
-        h1: G4  + s(C.white, '  \\\\\\///'),
-        h2: G4  + s(C.white, '   / _  _ \\'),
-        h3: G4  + s(C.white, '  (| ') + s(C.cyan, '(o)(o)') + s(C.white, ' |)'),
-        h4: G4  + s(C.white, '.OOOo--()--oOOO.'),
-        h5: G4  + s(C.white, '|   ') + s(C.orange, 'H\u03c8 = E\u03c8') + s(C.white, '   |'),
-        h6: G4  + s(C.white, "'oooO______Oooo'"),
-    };
-
-    // Build a standard content row
-    function row(rText, aText, hSpan) {
-        const r = rText ? s(C.white, rText) : ' '.repeat(R_PAD);
-        const a = aText ? s(C.blue,  aText) : ' '.repeat(A_PAD);
-        return s(C.dim, '|') + '    ' + r + '      ' + a + hSpan;
-    }
-
-    const BORDER = s(C.dim, '+' + '\u2550'.repeat(100) + '+');
-    const BLANK  = s(C.dim, '|');
-
-    const asciiLines = [
-        BORDER,
-
-        // ── Header ──────────────────────────────────────────────────────────
-        s(C.dim,'|') + '  '
-            + s(C.hdr,'STRUCTURAL FRAMEWORKS')
-            + '              '
-            + s(C.hdr,'NANOMATERIALS')
-            + '         '
-            + s(C.dim,'|')
-            + '      '
-            + s(C.hdr,'DYNAMICS')
-            + '      '
-            + s(C.dim,'|')
-            + '    '
-            + s(C.cyan,'THEORY DEV.')
-            + '    '
-            + s(C.dim,'|'),
-
-        BORDER,
-        BLANK,
-
-        // ── [ RESEARCH MODULES ] │ AND A1 │ H1 hair ─────────────────────────
-        s(C.dim,'|') + '    '
-            + s(C.green, '[ RESEARCH MODULES ]')
-            + ' '.repeat(R_PAD - 20)   // pad header to R_PAD width
-            + '      '
-            + s(C.blue, AND[0])
-            + H.h1,
-
-        // ── (blank)              │ AND A2 │ H2 forehead ───────────────────────
-        s(C.dim,'|') + '    '
-            + ' '.repeat(R_PAD)
-            + '      '
-            + s(C.blue, AND[1])
-            + H.h2,
-
-        // ── R1  │ AND A3 │ H3 eyes ──────────────────────────────────────────
-        row(RES[0], AND[2], H.h3),
-
-        // ── R2  │ AND A4 │ H4 arms ──────────────────────────────────────────
-        row(RES[1], AND[3], H.h4),
-
-        // ── R3  │ AND A5 │ H5 equation ──────────────────────────────────────
-        row(RES[2], AND[4], H.h5),
-
-        // ── R4  │ AND A6 │ H6 hands (bottom body) ──────────────────────────
-        row(RES[3], AND[5], H.h6),
-
-        // ── R5  plain ────────────────────────────────────────────────────────
-        row(RES[4], '', ''),
-
-        // ── R6  plain ────────────────────────────────────────────────────────
-        row(RES[5], '', ''),
-
-        BLANK,
-
-        // ── Label row: centred under AND+human area (cols 54–100) ─────────────
-        //    "Architectures, Nanomaterials & Dynamics Research" (48 chars)
-        //    starts at col 53 → centre ≈ col 77
-        s(C.dim,'|')
-            + ' '.repeat(53)
-            + s(C.sep,  '\u2500\u2500 ')
-            + s(C.label,'Architectures, Nanomaterials & Dynamics Research')
-            + s(C.sep,  ' \u2500\u2500'),
-
-        // ── Status row ────────────────────────────────────────────────────────
-        s(C.dim,'|') + '    ' + s(C.green,'[STATUS]: ONLINE'),
-
-        BLANK,
-        BORDER,
-    ];
-
-
-function renderAsciiInstantly() {
-
-    const asciiContainer =
-        document.getElementById('ascii-container');
-
-    const fragment =
-        document.createDocumentFragment();
-
-    asciiLines.forEach(line => {
-
-        const div =
-            document.createElement('div');
-
-        div.style.whiteSpace = 'pre';
-
-        div.style.fontFamily =
-            "'Ubuntu Mono','Courier New',monospace";
-
-        div.style.lineHeight = '1.4';
-
-        div.innerHTML = line;
-
-        fragment.appendChild(div);
-    });
-
-    asciiContainer.appendChild(fragment);
-
-    document
-        .getElementById('main-content')
-        ?.classList.add('visible');
-}
-
-renderAsciiInstantly();
-
-</script>
 </body>
 </html>
