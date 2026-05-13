@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AND- Research | Home</title>
+    <!-- Ubuntu Mono for authentic Ubuntu terminal look -->
     <link rel="stylesheet" href="style.css">
     <style>
+        #ascii-container,
+        #ascii-container div,
+        #ascii-container span,
+        nav,
+        .cursor {
+            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
+            letter-spacing: 0;
+        }
+        /* Centre wrapper */
         .terminal-logo-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            margin: 0 auto 40px;
+            margin: 0 auto;
         }
         .terminal-logo {
             display: inline-block;
@@ -19,13 +29,19 @@
             overflow-x: auto;
             font-size: 0.92rem;
             line-height: 1.4;
+            /* Ubuntu terminal background + padding for that authentic terminal window feel */
             background: #1a1a1a;
             border: 1px solid #3a3a3a;
             border-radius: 6px;
             padding: 14px 18px;
-            box-shadow: none;
-            font-family: 'Ubuntu Mono', 'Courier New', monospace;
-            white-space: pre;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+        }
+        /* Override ALL text inside terminal to Ubuntu Mono */
+        .terminal-logo,
+        .terminal-logo div,
+        .terminal-logo span {
+            font-family: 'Ubuntu Mono', 'Courier New', monospace !important;
+            letter-spacing: 0.02em;
         }
     </style>
 </head>
@@ -35,73 +51,245 @@
 
     <nav>
         <span style="color: var(--accent-green);">root@AND-Research:~$</span><span class="cursor"></span>
-        &nbsp;
-        <a href="index.html" class="active">./about</a> | 
-        <a href="intro.html">./admintale</a> |
-        <a href="research.html">./research</a> | 
-        <a href="publications.html">./publications</a> | 
-        <a href="contact.html">./contact</a>
+        
+            &nbsp;
+            <a href="index.html" class="active">./about</a> | 
+            <a href="intro.html">./admintale</a> |
+            <a href="research.html">./research</a> | 
+            <a href="publications.html">./publications</a> | 
+            <a href="contact.html">./contact</a>
     </nav>
     <br><br>
 
     <div class="terminal-logo-wrapper">
-        <div class="terminal-logo"><div><span style="color:#555555">+════════════════════════════════════════════════════════════════════════════════════════════════════+</span></div>
-<div><span style="color:#555555">|</span>  <span style="color:#ffffff;font-weight:bold">STRUCTURAL FRAMEWORKS</span>              <span style="color:#ffffff;font-weight:bold">NANOMATERIALS</span>         <span style="color:#555555">|</span>      <span style="color:#ffffff;font-weight:bold">DYNAMICS</span>      <span style="color:#555555">|</span>    <span style="color:#26c6da;font-weight:bold">THEORY DEV.</span>    <span style="color:#555555">|</span></div>
-<div><span style="color:#555555">+════════════════════════════════════════════════════════════════════════════════════════════════════+</span></div>
-<div><span style="color:#555555">|</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#4caf50;font-weight:bold">[ RESEARCH MODULES ]</span>                                <span style="color:#5badff;font-weight:bold">█████╗ ███╗   ██╗██████╗  </span>    <span style="color:#e0e0e0">  \\\///</span></div>
-<div><span style="color:#555555">|</span>                                                        <span style="color:#5badff;font-weight:bold">██╔══██╗████╗  ██║██╔══██╗</span>    <span style="color:#e0e0e0">   / _  _ \</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Electronic structure of Plasmonic systems   </span>      <span style="color:#5badff;font-weight:bold">███████║██╔██╗ ██║██║  ██║</span>    <span style="color:#e0e0e0">  (| </span><span style="color:#26c6da;font-weight:bold">(o)(o)</span><span style="color:#e0e0e0"> |)</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Homogeneous &amp; Heterogeneous Catalysis       </span>      <span style="color:#5badff;font-weight:bold">██╔══██║██║╚██╗██║██║  ██║</span>    <span style="color:#e0e0e0">.OOOo--()--oOOO.</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Topological Quantum Materials for catalysis </span>      <span style="color:#5badff;font-weight:bold">██║  ██║██║ ╚████║██████╔╝</span>    <span style="color:#e0e0e0">|   </span><span style="color:#ff8f00;font-weight:bold">Hψ = Eψ</span><span style="color:#e0e0e0">   |</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Electronic Structure of Solids &amp; Molecules  </span>      <span style="color:#5badff;font-weight:bold">╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ </span>    <span style="color:#e0e0e0">'oooO______Oooo'</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Ab Initio MD &amp; QM/MM                        </span>                                </div>
-<div><span style="color:#555555">|</span>    <span style="color:#e0e0e0">> Biomimetic Chemistry                        </span>                                </div>
-<div><span style="color:#555555">|</span></div>
-<div><span style="color:#555555">|</span>                                                     <span style="color:#444444">── </span><span style="color:#80deea;font-style:italic">Architectures, Nanomaterials &amp; Dynamics Research</span><span style="color:#444444"> ──</span></div>
-<div><span style="color:#555555">|</span>    <span style="color:#4caf50;font-weight:bold">[STATUS]: ONLINE</span></div>
-<div><span style="color:#555555">|</span></div>
-<div><span style="color:#555555">+════════════════════════════════════════════════════════════════════════════════════════════════════+</span></div></div>
+        <div class="terminal-logo" id="ascii-container"></div>
     </div>
 
-    <section id="about_and">
-        <h2>System Specs: The Protocol</h2>
-        <p>
-            Welcome to <strong>AND- Research</strong> (not the conjunction "AND"). 
-            I execute a three-part protocol focusing on <strong>Architectures, Nanomaterials, and Description/Dynamics</strong>.
-            <br><br>
-            My research integrates <span class="research-tag">Architectures</span> (computational modelling and methodological development within electronic structure frameworks) applied to diverse <span class="research-tag">Nanomaterials</span> (interfaces, biomimetics, plasmonics, and catalysts), 
-            where I focus on the <span class="research-tag">Description & Dynamics</span>: utilising QM calculations to <strong>describe</strong> the electronic environment, and classical/ab-initio MD (or) QM/MM simulations to capture the <strong>dynamics</strong>, thereby elucidating the atomistic mechanisms of these chemical phenomena.
-        </p>
-    </section>
-    
-    <section id="admin_profile">
-        <h2>Admin Profile: The Operator</h2>
-        <div class="profile-stats">
+    <div id="main-content" class="fade-in-section">
+        <section id="about_and">
+            <h2>System Specs: The Protocol</h2>
             <p>
-            <strong>[System Name]:</strong> Adabala Venkata Snehith<br>
-            <strong>[Display Alias]:</strong> Snehith Adabala<br>
-            <strong>[Unique ID]:</strong> <a href="https://orcid.org/0000-0002-4294-6385" target="_blank">ORCID: 0000-0002-4294-6385</a><br>
-            <strong>[Server Location]:</strong> TIFR Hyderabad, India
+                Welcome to <strong>AND- Research</strong> (not the conjunction "AND"). 
+                I execute a three-part protocol focusing on <strong>Architectures, Nanomaterials, and Description/Dynamics</strong>.
+                <br><br>
+                My research integrates <span class="research-tag">Architectures</span> (computational modelling and methodological development within electronic structure frameworks) applied to diverse <span class="research-tag">Nanomaterials</span> (interfaces, biomimetics, plasmonics, and catalysts), 
+                where I focus on the <span class="research-tag">Description & Dynamics</span>: utilising QM calculations to <strong>describe</strong> the electronic environment, and classical/ab-initio MD (or) QM/MM simulations to capture the <strong>dynamics</strong>, thereby elucidating the atomistic mechanisms of these chemical phenomena.
             </p>
-        </div>
-        <br>
-        <p>
-            My core processing power is dedicated to <strong>Computational and Theoretical Chemistry</strong>. I focus on performing electronic-structure calculations for metals, materials, and molecules—using these frameworks to explore the unconventional pathways that govern chemical phenomena.
-            <br><br>
-            <strong>[Background Processes]:</strong>
+        </section>
+        
+        <section id="admin_profile">
+            <h2>Admin Profile: The Operator</h2>
+            <div class="profile-stats">
+                <p>
+                <strong>[System Name]:</strong> Adabala Venkata Snehith<br>
+                <strong>[Display Alias]:</strong> Snehith Adabala<br>
+                <strong>[Unique ID]:</strong> <a href="https://orcid.org/0000-0002-4294-6385" target="_blank">ORCID: 0000-0002-4294-6385</a><br>
+                <strong>[Server Location]:</strong> TIFR Hyderabad, India
+                </p>
+            </div>
             <br>
-            When the simulation is on standby, I switch to <strong>Creative Mode</strong>. I am a passionate music and art enthusiast (practising as an amateur artist in my downtime) and a trained culinary enthusiast—because cooking is, effectively, just edible synthesis.
-        </p>
-    </section>
+            <p>
+                My core processing power is dedicated to <strong>Computational and Theoretical Chemistry</strong>. I focus on performing electronic-structure calculations for metals, materials, and molecules—using these frameworks to explore the unconventional pathways that govern chemical phenomena.
+                <br><br>
+                <strong>[Background Processes]:</strong>
+                <br>
+                When the simulation is on standby, I switch to <strong>Creative Mode</strong>. I am a passionate music and art enthusiast (practising as an amateur artist in my downtime) and a trained culinary enthusiast—because cooking is, effectively, just edible synthesis.
+            </p>
+        </section>
 
-    <footer>
-        <br><br>
-        <hr style="border-color: #333;">
-        <small style="color: #555;">System.exit(0) // © 2026 AND- Research</small>
-    </footer>
-
+        <footer>
+            <br><br>
+            <hr style="border-color: #333;">
+            <small style="color: #555;">System.exit(0) // © 2026 AND- Research</small>
+        </footer>
+    </div>
 </div>
 
+<script>
+
+    // Colour helpers
+    const C = {
+        dim   : 'color:#555555',
+        hdr   : 'color:#ffffff;font-weight:bold',
+        green : 'color:#4caf50;font-weight:bold',
+        white : 'color:#e0e0e0',
+        blue  : 'color:#5badff;font-weight:bold',
+        cyan  : 'color:#26c6da;font-weight:bold',
+        orange: 'color:#ff8f00;font-weight:bold',
+        label : 'color:#80deea;font-style:italic',
+        sep   : 'color:#444444',
+    };
+
+    function s(style, text) { return '<span style="' + style + '">' + text + '</span>'; }
+
+    // Layout:
+    //   | + 4sp + research[46] + 3sp + AND[26] + 4sp + human(col 84, center at col 92)
+    const R_PAD = 46;
+    const A_PAD = 26;
+
+    function pad(str, w) { return str + ' '.repeat(Math.max(0, w - str.length)); }
+
+    const RES = [
+        pad("> Electronic structure of Plasmonic systems",  R_PAD),
+        pad("> Homogeneous & Heterogeneous Catalysis",      R_PAD),
+        pad("> Topological Quantum Materials for catalysis",R_PAD),
+        pad("> Electronic Structure of Solids & Molecules", R_PAD),
+        pad("> Ab Initio MD & QM/MM",                       R_PAD),
+        pad("> Biomimetic Chemistry",                        R_PAD),
+    ];
+
+    const AND = [
+        pad("\u2588\u2588\u2588\u2588\u2588\u2557 \u2588\u2588\u2588\u2557   \u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2588\u2588\u2557",  A_PAD),
+        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557  \u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557", A_PAD),
+        pad("\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557 \u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
+        pad("\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551  \u2588\u2588\u2551", A_PAD),
+        pad("\u2588\u2588\u2551  \u2588\u2588\u2551\u2588\u2588\u2551 \u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d", A_PAD),
+        pad("\u255a\u2550\u255d  \u255a\u2550\u255d\u255a\u2550\u255d  \u255a\u2550\u2550\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d", A_PAD),
+    ];
+
+    // Gap before human column (4 spaces)
+    const G4 = '    ';
+    // Full empty AND+gap block (used when no AND on that row)
+    const AGAP = ' '.repeat(A_PAD + 4);
+
+    // Human figure — all rows centred at col 84+8 = 92
+    //
+    //        \\\/\/          ← H1  lead=5, len=6,  center=5+3=8 ✓
+    //       / _  _ \         ← H2  lead=4, len=8,  center=4+4=8 ✓
+    //     (| (o)(o) |)       ← H3  lead=2, len=12, center=2+6=8 ✓
+    //   .OOOo--()--oOOO.     ← H4  lead=0, len=16, center=0+8=8 ✓
+    //   |   Hψ = Eψ;   |     ← H5  lead=0, len=16, center=0+8=8 ✓
+    //   'oooO______Oooo'     ← H6  lead=0, len=16, center=0+8=8 ✓
+    //       (      )         ← H7  lead=4, len=8,  center=4+4=8 ✓  (directly below H6)
+    //        \    /          ← H8  lead=5, len=6,  center=5+3=8 ✓  (directly below H7)
+
+    const H = {
+        h1: G4  + s(C.white, '  \\\\\\///'),
+        h2: G4  + s(C.white, '   / _  _ \\'),
+        h3: G4  + s(C.white, '  (| ') + s(C.cyan, '(o)(o)') + s(C.white, ' |)'),
+        h4: G4  + s(C.white, '.OOOo--()--oOOO.'),
+        h5: G4  + s(C.white, '|   ') + s(C.orange, 'H\u03c8 = E\u03c8') + s(C.white, '   |'),
+        h6: G4  + s(C.white, "'oooO______Oooo'"),
+    };
+
+    // Build a standard content row
+    function row(rText, aText, hSpan) {
+        const r = rText ? s(C.white, rText) : ' '.repeat(R_PAD);
+        const a = aText ? s(C.blue,  aText) : ' '.repeat(A_PAD);
+        return s(C.dim, '|') + '    ' + r + '      ' + a + hSpan;
+    }
+
+    const BORDER = s(C.dim, '+' + '\u2550'.repeat(100) + '+');
+    const BLANK  = s(C.dim, '|');
+
+    const asciiLines = [
+        BORDER,
+
+        // ── Header ──────────────────────────────────────────────────────────
+        s(C.dim,'|') + '  '
+            + s(C.hdr,'STRUCTURAL FRAMEWORKS')
+            + '              '
+            + s(C.hdr,'NANOMATERIALS')
+            + '         '
+            + s(C.dim,'|')
+            + '      '
+            + s(C.hdr,'DYNAMICS')
+            + '      '
+            + s(C.dim,'|')
+            + '    '
+            + s(C.cyan,'THEORY DEV.')
+            + '    '
+            + s(C.dim,'|'),
+
+        BORDER,
+        BLANK,
+
+        // ── [ RESEARCH MODULES ] │ AND A1 │ H1 hair ─────────────────────────
+        s(C.dim,'|') + '    '
+            + s(C.green, '[ RESEARCH MODULES ]')
+            + ' '.repeat(R_PAD - 20)   // pad header to R_PAD width
+            + '      '
+            + s(C.blue, AND[0])
+            + H.h1,
+
+        // ── (blank)              │ AND A2 │ H2 forehead ───────────────────────
+        s(C.dim,'|') + '    '
+            + ' '.repeat(R_PAD)
+            + '      '
+            + s(C.blue, AND[1])
+            + H.h2,
+
+        // ── R1  │ AND A3 │ H3 eyes ──────────────────────────────────────────
+        row(RES[0], AND[2], H.h3),
+
+        // ── R2  │ AND A4 │ H4 arms ──────────────────────────────────────────
+        row(RES[1], AND[3], H.h4),
+
+        // ── R3  │ AND A5 │ H5 equation ──────────────────────────────────────
+        row(RES[2], AND[4], H.h5),
+
+        // ── R4  │ AND A6 │ H6 hands (bottom body) ──────────────────────────
+        row(RES[3], AND[5], H.h6),
+
+        // ── R5  plain ────────────────────────────────────────────────────────
+        row(RES[4], '', ''),
+
+        // ── R6  plain ────────────────────────────────────────────────────────
+        row(RES[5], '', ''),
+
+        BLANK,
+
+        // ── Label row: centred under AND+human area (cols 54–100) ─────────────
+        //    "Architectures, Nanomaterials & Dynamics Research" (48 chars)
+        //    starts at col 53 → centre ≈ col 77
+        s(C.dim,'|')
+            + ' '.repeat(53)
+            + s(C.sep,  '\u2500\u2500 ')
+            + s(C.label,'Architectures, Nanomaterials & Dynamics Research')
+            + s(C.sep,  ' \u2500\u2500'),
+
+        // ── Status row ────────────────────────────────────────────────────────
+        s(C.dim,'|') + '    ' + s(C.green,'[STATUS]: ONLINE'),
+
+        BLANK,
+        BORDER,
+    ];
+
+
+function renderAsciiInstantly() {
+
+    const asciiContainer =
+        document.getElementById('ascii-container');
+
+    const fragment =
+        document.createDocumentFragment();
+
+    asciiLines.forEach(line => {
+
+        const div =
+            document.createElement('div');
+
+        div.style.whiteSpace = 'pre';
+
+        div.style.fontFamily =
+            "'Ubuntu Mono','Courier New',monospace";
+
+        div.style.lineHeight = '1.4';
+
+        div.innerHTML = line;
+
+        fragment.appendChild(div);
+    });
+
+    asciiContainer.appendChild(fragment);
+
+    document
+        .getElementById('main-content')
+        ?.classList.add('visible');
+}
+
+renderAsciiInstantly();
+
+</script>
 </body>
 </html>
