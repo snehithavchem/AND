@@ -34,7 +34,7 @@
             border: 1px solid #3a3a3a;
             border-radius: 6px;
             padding: 14px 18px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+            box-shadow: none;
         }
         /* Override ALL text inside terminal to Ubuntu Mono */
         .terminal-logo,
@@ -261,27 +261,9 @@ function renderAsciiInstantly() {
     const asciiContainer =
         document.getElementById('ascii-container');
 
-    const fragment =
-        document.createDocumentFragment();
-
-    asciiLines.forEach(line => {
-
-        const div =
-            document.createElement('div');
-
-        div.style.whiteSpace = 'pre';
-
-        div.style.fontFamily =
-            "'Ubuntu Mono','Courier New',monospace";
-
-        div.style.lineHeight = '1.4';
-
-        div.innerHTML = line;
-
-        fragment.appendChild(div);
-    });
-
-    asciiContainer.appendChild(fragment);
+    asciiContainer.innerHTML = asciiLines
+        .map(line => '<div style="white-space:pre;font-family:\'Ubuntu Mono\',\'Courier New\',monospace;line-height:1.4">' + line + '</div>')
+        .join('');
 
     document
         .getElementById('main-content')

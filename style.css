@@ -136,11 +136,3 @@ footer {
     color: #555;
 }
 
-.terminal-logo {
-    contain: content;
-    will-change: auto;
-}
-
-.terminal-logo div {
-    contain: layout style paint;
-}
