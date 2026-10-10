@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,9 +78,15 @@
             .intro-grid {
                 grid-template-columns: 1fr;
             }
+
+            .profile-card {
+                max-width: 420px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -91,10 +98,10 @@
 
         <br><br>
 
-        <a href="index.html">./about</a> | 
+        <a href="index.html">./about</a> |
         <a href="intro.html" class="active">./admintale</a> |
-        <a href="research.html">./research</a> | 
-        <a href="publications.html">./publications</a> | 
+        <a href="research.html">./research</a> |
+        <a href="publications.html">./publications</a> |
         <a href="contact.html">./contact</a>
     </nav>
 
@@ -109,17 +116,25 @@
                 <!-- LEFT SIDE -->
                 <div class="profile-card">
 
-                    <img src="google_scholar_photo.jpeg" alt="Snehith Adabala">
+                    <img
+                        src="google_scholar_photo.jpeg"
+                        alt="Adabala Venkata Snehith"
+                    >
 
                     <h3>Adabala Venkata Snehith</h3>
 
                     <p>
                         Integrated PhD Student<br>
-                        Theoretical & Computational Chemistry<br>
+                        Theoretical &amp; Computational Chemistry<br>
                         TIFR Hyderabad, India
                     </p>
 
-                    <a href="Adabala_Venkata_Snehith_CV.pdf" class="cv-button" target="_blank">
+                    <a
+                        href="Adabala_Venkata_Snehith_CV.pdf"
+                        class="cv-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         Download CV
                     </a>
 
@@ -129,49 +144,153 @@
                 <div class="intro-text">
 
                     <p>
-                        My research interests span 
+                        My research interests lie at the intersection of
                         <span class="research-highlight">
-                            Theoretical Chemistry,
-                            Computational Chemistry,
-                            and Topological Chemistry
+                            theoretical chemistry, computational materials
+                            science, topological quantum materials, and
+                            excited-state electronic structure theory
                         </span>.
-                        My work primarily focuses on understanding complex electronic phenomena in materials and catalytic systems through advanced first-principles methodologies.
+                        I am particularly interested in understanding how
+                        symmetry, spin-orbit coupling, electronic topology,
+                        and many-body interactions govern the properties
+                        of condensed-matter systems and catalytic interfaces.
+                        My broader goal is to connect first-principles
+                        calculations with the underlying physical mechanisms
+                        that determine experimentally observable phenomena.
                     </p>
 
                     <p>
-                        From foundational applications of 
-                        <strong>Density Functional Theory (DFT)</strong> 
-                        in catalysis to advanced investigations involving 
-                        <strong>spin polarisation</strong>, 
-                        <strong>spin-orbit coupling</strong>, 
-                        and <strong>valleytronics</strong> during my master's in chemistry at 
-                        <strong>TIFR Hyderabad, India</strong>, 
-                        I have extensively employed 
-                        <strong>VASP</strong> for electronic-structure calculations across a broad range of condensed matter and materials science problems. To understand the behaviour of electronic structure in molecules, I have mainly used <strong>Gaussian</strong> and <strong>ORCA</strong> to explore the underlying phenomenon and pathways in organometallics and metalloenzyme biomimetics. 
+                        My experience spans electronic-structure calculations
+                        in both periodic solids and molecular systems.
+                        During my master's at
+                        <strong>TIFR Hyderabad, India</strong>,
+                        I worked extensively with
+                        <strong>Density Functional Theory (DFT)</strong>
+                        and <strong>VASP</strong> to investigate electronic
+                        properties in materials, including spin-polarised
+                        systems, spin-orbit coupling, and valley-dependent
+                        phenomena. These interests have naturally led me
+                        towards the study of
+                        <strong>Berry curvature, valley Hall physics,
+                        spin-valley locking, and topological properties
+                        of electronic bands</strong>.
+                        I am particularly interested in how magnetic exchange,
+                        crystal symmetry, and relativistic effects can be
+                        exploited to engineer electronic states in
+                        low-dimensional quantum materials.
                     </p>
 
                     <p>
-                        My research predominantly focuses on properties governed by 
-                        surface interactions and electronic structures, with particular emphasis on 
-                        slab and surface calculations that are central to low-dimensional systems, catalytic interfaces, and quantum materials.
-                        More recently, my interests have evolved toward excited-state and many-body methodologies, especially 
-                        <strong>GW</strong> and 
-                        <strong>Bethe-Salpeter Equation (BSE)</strong> calculations for investigating excitonic phenomena and quasiparticle effects in complex materials.
+                        A major direction I wish to pursue is the
+                        investigation of <strong>topological and
+                        valley-dependent phenomena from first principles</strong>.
+                        This includes studying Berry curvature,
+                        anomalous and valley Hall responses, spin textures,
+                        and the role of electron-phonon interactions in
+                        intervalley scattering and carrier relaxation.
+                        I am interested in identifying materials in which
+                        symmetry breaking, magnetic order, and spin-orbit
+                        coupling provide control over electronic transport
+                        and excitation dynamics. In the longer term,
+                        I hope to explore how these properties can be
+                        connected to surface chemistry, interfacial
+                        electronic structure, and emerging catalytic
+                        applications of quantum materials.
                     </p>
 
                     <p>
-                        On the other hand, I have simultaneously emphasised metalloenzymatic biomimetics (mainly focusing on high-valent metal oxo complexes) and understanding their role in non-heme ligands with different metal centres, and further emphasis is on understanding the role of explicit solvation in understanding the rate of reactions, which might need QM/MM calculations, giving a niche with molecular dynamics (MD) simulations. 
-
-                    <p>
-                        Beyond applying existing methodologies, I am deeply interested in the computational implementations and numerical foundations underlying modern electronic-structure theory. 
-                        I actively seek to understand the developer-level aspects of frameworks such as VASP and aim to explore them particularly for many-body perturbation theory workflows. My broader scientific vision involves developing advanced computational strategies for 
-                        heterogeneous catalysis, topological-material catalysis, finite-temperature DFT using density functional embedding techniques (DFET) for surface-induced quantum phenomena and plasmonic catalysis, where precise control over electronic excitations and many-body effects becomes essential.
+                        Beyond ground-state electronic structure, I am
+                        increasingly interested in
+                        <strong>many-body perturbation theory and
+                        excited-state methodologies</strong>, particularly
+                        the <strong>GW approximation</strong> and the
+                        <strong>Bethe-Salpeter equation (GW-BSE)</strong>.
+                        These methods offer a route towards understanding
+                        quasiparticle energy corrections, electron-hole
+                        interactions, excitons, and optical excitation
+                        spectra beyond conventional DFT.
+                        I aim to develop a deeper understanding of their
+                        theoretical foundations, numerical implementation,
+                        and practical application to complex materials.
+                        An important long-term objective is to connect
+                        many-body effects and optical excitations with
+                        valley-selective phenomena, spin-orbit-coupled
+                        electronic states, and light-driven processes
+                        at material interfaces.
                     </p>
 
                     <p>
-                        With extensive experience in slabs, surfaces, spin-orbit-coupled systems, and electronic-structure analysis in molecules and solids, I aim to bridge the gap between theoretical concepts, computational implementations, and practical materials applications. 
-                        I strongly believe that collaborative interactions among developers, theorists, and computational scientists, along with experimental groups, are vital for advancing next-generation materials modelling methodologies.
-                        "A computational chemist is more successful if they are always trying to go as close as experiments to understand the phenomenon", my advisor has always emphasised this, and I ensure this is followed. 
+                        My interests also extend to
+                        <strong>heterogeneous catalysis and
+                        organometallic chemistry</strong>.
+                        Using molecular electronic-structure methods,
+                        particularly <strong>Gaussian</strong> and
+                        <strong>ORCA</strong>, I have explored molecular
+                        electronic structure and reaction pathways in
+                        organometallic systems and metalloenzyme biomimetics.
+                        I am particularly interested in high-valent metal-oxo
+                        complexes, non-heme coordination environments,
+                        and the influence of explicit solvation on reaction
+                        energetics and mechanisms. I would like to connect
+                        these molecular-scale questions with surface
+                        reactivity, catalytic intermediates, and
+                        atomistic simulations, including molecular dynamics
+                        and QM/MM approaches where appropriate.
+                    </p>
+
+                    <p>
+                        At the interface of materials physics and catalysis,
+                        I am interested in understanding how surface
+                        structure, charge redistribution, and electronic
+                        excitations influence catalytic activity.
+                        This includes low-dimensional systems,
+                        slab and surface calculations, metal-supported
+                        interfaces, and plasmon-assisted chemistry.
+                        I am particularly intrigued by the possibility
+                        of understanding hot-carrier generation and
+                        non-equilibrium electronic processes using
+                        <strong>density-functional embedding theory
+                        (DFET)</strong>. Extending embedding approaches
+                        towards finite electronic temperatures and
+                        non-equilibrium carrier distributions is another
+                        direction I hope to explore, especially for
+                        connecting local chemical reactivity with the
+                        electronic response of an extended material.
+                    </p>
+
+                    <p>
+                        Beyond applying established computational methods,
+                        I am interested in their numerical foundations,
+                        algorithmic design, and developer-level
+                        implementations. I hope to understand electronic-
+                        structure codes beyond their routine use, particularly
+                        the implementation and convergence of advanced
+                        methods for excited states and many-body effects.
+                        In this context, I am keen to explore the
+                        computational frameworks underlying VASP and other
+                        electronic-structure packages, with an emphasis on
+                        understanding the approximations, algorithms, and
+                        numerical challenges that govern their predictions.
+                    </p>
+
+                    <p>
+                        Ultimately, my scientific vision is to bridge
+                        <strong>topological materials physics,
+                        many-body electronic structure, and
+                        computational catalysis</strong>.
+                        I want to understand not only what a calculation
+                        predicts, but also which physical mechanisms
+                        produce the result, how reliably those mechanisms
+                        can be described computationally, and how the
+                        predictions can be tested against experiments.
+                        I believe that meaningful progress in computational
+                        science requires close interaction among theorists,
+                        method developers, computational scientists,
+                        and experimental researchers.
+                        My guiding principle is to bring computational
+                        modelling as close as possible to experimental
+                        reality while retaining a deep understanding
+                        of the physics and chemistry underlying it.
                     </p>
 
                 </div>
@@ -193,3 +312,4 @@
 
 </body>
 </html>
+```
